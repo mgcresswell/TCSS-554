@@ -9,7 +9,6 @@ def Converge(A, r):
     while i <= n:    
         newR = A.dot(r)   
         newR = np.round(newR, decimals=5)    
-        i = i+1
         print("r =", newR) 
         if (hasConverged(r, newR)):
             print("Number of iterations to converge = ", i)
@@ -17,6 +16,7 @@ def Converge(A, r):
             break
         else:
             r = newR
+            i = i+1
             
 #Test for convergence
 #subtract new r from old r 
@@ -29,7 +29,7 @@ def hasConverged(oldR, newR):
     
 
 np.set_printoptions(precision=5, suppress=True)
-#create M array
+#create M array 
 M = np.array([
     [0,0,0,1,0],
     [(1/2),0,0,0,0],
